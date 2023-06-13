@@ -3,7 +3,7 @@ let categoriaService = require('../services/categoria')
 const getCategoria = async (req, res, next) => {
     try {
         const retorno = await categoriaService.getCategoria(req.params)
-        res.status(201).json(retorno)
+        res.status(200).json(retorno)
     } catch (err) {
         res.status(500).send(err)
     }
@@ -18,7 +18,7 @@ const postCategoria = async (req, res, next) => {
 const deleteCategoria = async (req, res, next) => {
     try {
         await categoriaService.deleteCategoria(req.params)
-        .then(ret => res.status(204).send(ret))
+        .then(ret => res.status(200).send(ret))
         .catch(err => res.status(500).send(err))
     } catch {
         next(err);

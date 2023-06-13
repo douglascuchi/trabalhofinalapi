@@ -3,14 +3,14 @@ const clienteController = require('../controllers/cliente');
 module.exports = (app) => {
     app.get('/cliente', clienteController.getCliente
         /*  #swagger.tags = ['Cliente']
-        #swagger.summary = 'Busca lista de clientes'
+        #swagger.summary = 'Busca lista de clientes.'
         */)
     app.post('/cliente', clienteController.postCliente
         /*  #swagger.tags = ['Cliente']
-        #swagger.summary = 'Cadastra um cliente'
+        #swagger.summary = 'Cadastra um cliente.'
          #swagger.parameters['json'] = {
                 in: 'body',
-                description: 'Dados para cadastrar um cliente',
+                description: 'Dados para cadastrar um cliente.',
                 type: 'json',
                 schema: {
                     nome: "Douglas Eduardo Cuchi",
@@ -28,7 +28,7 @@ module.exports = (app) => {
         */)
     app.delete('/cliente/:id', clienteController.deleteCliente
         /*  #swagger.tags = ['Cliente']
-        #swagger.summary = 'Remove um cliente',
+        #swagger.summary = 'Remove um cliente.',
         #swagger.parameters['id'] = {
      description: "Chave de identificação do cliente (ID).",
      value: "1"
@@ -43,7 +43,7 @@ module.exports = (app) => {
         }
         #swagger.parameters['json'] = {
                 in: 'body',
-                description: 'Dados para atualizar completamente um cliente',
+                description: 'Dados para atualizar completamente um cliente.',
                 type: 'json',
                 schema: {
                     idcliente: "1",
@@ -69,7 +69,7 @@ module.exports = (app) => {
         }
         #swagger.parameters['json'] = {
                 in: 'body',
-                description: 'Dados para atualizar parcialmente um cliente',
+                description: 'Dados para atualizar parcialmente um cliente.',
                 type: 'json',
                 schema: {
                     idcliente: "1",

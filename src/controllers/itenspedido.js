@@ -3,7 +3,7 @@ let itensPedidoService = require('../services/itenspedido')
 const getItensPedido = async (req, res, next) => {
     try {
         const retorno = await itensPedidoService.getItensPedido(req.params)
-        res.status(201).json(retorno)
+        res.status(200).json(retorno)
     } catch (err) {
         res.status(500).send(err)
     }
@@ -18,7 +18,7 @@ const postItensPedido = async (req, res, next) => {
 const deleteItensPedido = async (req, res, next) => {
     try {
         await itensPedidoService.deleteItensPedido(req.params)
-        .then(ret => res.status(204).send(ret))
+        .then(ret => res.status(200).send(ret))
         .catch(err => res.status(500).send(err))
     } catch {
         next(err);

@@ -1,23 +1,23 @@
-let produtoService = require('../services/produto')
+let estoqueService = require('../services/estoque')
 
-const getProduto = async (req, res, next) => {
+const getEstoque = async (req, res, next) => {
     try {
-        const retorno = await produtoService.getProduto(req.params)
+        const retorno = await estoqueService.getEstoque(req.params)
         res.status(200).json(retorno)
     } catch (err) {
         res.status(500).send(err)
     }
 }
 
-const postProduto = async (req, res, next) => {
-    await produtoService.postProduto(req.body)
+const postEstoque = async (req, res, next) => {
+    await estoqueService.postEstoque(req.body)
         .then(ret => res.status(201).send(ret))
         .catch(err => res.status(500).send(err.message))
 }
 
-const deleteProduto = async (req, res, next) => {
+const deleteEstoque = async (req, res, next) => {
     try {
-        await produtoService.deleteProduto(req.params)
+        await estoqueService.deleteEstoque(req.params)
         .then(ret => res.status(200).send(ret))
         .catch(err => res.status(500).send(err))
     } catch {
@@ -25,11 +25,11 @@ const deleteProduto = async (req, res, next) => {
     }
 }
 
-const putProduto = async (req, res, next) => {
+const putEstoque = async (req, res, next) => {
     try {
         let params = req.body
         params.id = req.params.id
-        await produtoService.putProduto(params)
+        await estoqueService.putEstoque(params)
             .then(ret => res.status(200).send(ret))
             .catch(err => res.status(500).send(err)) 
     } catch (err){
@@ -37,11 +37,11 @@ const putProduto = async (req, res, next) => {
     }
 }
 
-const patchProduto = async (req, res, next) => {
+const patchEstoque = async (req, res, next) => {
     try{
         let params = req.body
         params.id = req.params.id
-        await produtoService.patchProduto(params)
+        await estoqueService.patchEstoque(params)
             .then(ret => res.status(200).send(ret))
             .catch(err => res.status(500).send(err))
     } catch (err){
@@ -49,8 +49,8 @@ const patchProduto = async (req, res, next) => {
     }
 }
 
-module.exports.getProduto= getProduto
-module.exports.postProduto = postProduto
-module.exports.deleteProduto = deleteProduto
-module.exports.putProduto = putProduto
-module.exports.patchProduto = patchProduto
+module.exports.getEstoque = getEstoque
+module.exports.postEstoque = postEstoque
+module.exports.deleteEstoque = deleteEstoque
+module.exports.putEstoque = putEstoque
+module.exports.patchEstoque = patchEstoque

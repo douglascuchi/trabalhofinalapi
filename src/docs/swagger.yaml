@@ -1,0 +1,1414 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API TRABALHO FINAL",
+    "description": "Documentação da API"
+  },
+  "host": "localhost:3000",
+  "basePath": "",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/cliente": {
+      "get": {
+        "tags": [
+          "Cliente"
+        ],
+        "summary": "Busca lista de clientes.",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Cliente"
+        ],
+        "summary": "Cadastra um cliente.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para cadastrar um cliente.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": {
+                  "type": "string",
+                  "example": "Douglas Eduardo Cuchi"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "douglaszer0@live.com"
+                },
+                "endereco": {
+                  "type": "string",
+                  "example": "Av. São Paulo"
+                },
+                "telefone": {
+                  "type": "string",
+                  "example": "49988690705"
+                },
+                "numero": {
+                  "type": "string",
+                  "example": "2793"
+                },
+                "bairro": {
+                  "type": "string",
+                  "example": "Pioneiro"
+                },
+                "complemento": {
+                  "type": "string",
+                  "example": "Esquina"
+                },
+                "municipio": {
+                  "type": "string",
+                  "example": "Pinhalzinho"
+                },
+                "cep": {
+                  "type": "string",
+                  "example": "89870000"
+                },
+                "uf": {
+                  "type": "string",
+                  "example": "SC"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Criado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/cliente/{id}": {
+      "delete": {
+        "tags": [
+          "Cliente"
+        ],
+        "summary": "Remove um cliente.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Chave de identificação do cliente (ID).",
+            "value": "1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Cliente"
+        ],
+        "summary": "Atualização completa do cliente.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Chave de identificação do cliente (ID).",
+            "value": "1"
+          },
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para atualizar completamente um cliente.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "idcliente": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "nome": {
+                  "type": "string",
+                  "example": "Douglas Eduardo Cuchi"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "douglaszer0@live.com"
+                },
+                "endereco": {
+                  "type": "string",
+                  "example": "Avenida Curitiba"
+                },
+                "telefone": {
+                  "type": "string",
+                  "example": "49988690705"
+                },
+                "numero": {
+                  "type": "string",
+                  "example": "2793"
+                },
+                "bairro": {
+                  "type": "string",
+                  "example": "Pioneiro"
+                },
+                "complemento": {
+                  "type": "string",
+                  "example": "Esquina"
+                },
+                "municipio": {
+                  "type": "string",
+                  "example": "Pinhalzinho"
+                },
+                "cep": {
+                  "type": "string",
+                  "example": "89870000"
+                },
+                "uf": {
+                  "type": "string",
+                  "example": "SC"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Cliente"
+        ],
+        "summary": "Atualização parcial do cliente.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Chave de identificação do cliente (ID).",
+            "value": "1"
+          },
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para atualizar parcialmente um cliente.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "idcliente": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "nome": {
+                  "type": "string",
+                  "example": "Ricardo Hendges"
+                },
+                "telefone": {
+                  "type": "string",
+                  "example": "49877540124"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "204": {
+            "description": "Nenhum Conteúdo"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/categoria": {
+      "get": {
+        "tags": [
+          "Categoria"
+        ],
+        "summary": "Busca lista de categorias.",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Categoria"
+        ],
+        "summary": "Cadastra uma categoria.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para cadastrar uma categoria.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": {
+                  "type": "string",
+                  "example": "Rifle"
+                },
+                "descricao": {
+                  "type": "string",
+                  "example": "Armas de alta precisão"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Criado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/categoria/{id}": {
+      "delete": {
+        "tags": [
+          "Categoria"
+        ],
+        "summary": "Remove uma categoria.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Chave de identificação da categoria (ID).",
+            "value": "1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Categoria"
+        ],
+        "summary": "Atualização completa da categoria.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Chave de identificação do categoria (ID).",
+            "value": "1"
+          },
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para atualizar completamente uma categoria.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "idcategoria": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "nome": {
+                  "type": "string",
+                  "example": "Rifle"
+                },
+                "descricao": {
+                  "type": "string",
+                  "example": "Armas de alta precisão"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Categoria"
+        ],
+        "summary": "Atualização parcial da categoria.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Chave de identificação do categoria (ID).",
+            "value": "1"
+          },
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para atualizar parcialmente uma categoria.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "idcategoria": {
+                  "type": "string",
+                  "example": "2"
+                },
+                "nome": {
+                  "type": "string",
+                  "example": "Rifle"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/itenspedido": {
+      "get": {
+        "tags": [
+          "Itens do pedido"
+        ],
+        "summary": "Busca lista de itens do pedido.",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Itens do pedido"
+        ],
+        "summary": "Cadastra um item do pedido.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para cadastrar um item do pedido.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "idpedido": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "idproduto": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "quantidade": {
+                  "type": "string",
+                  "example": "3"
+                },
+                "preco_unitario": {
+                  "type": "string",
+                  "example": "150"
+                },
+                "desconto": {
+                  "type": "string",
+                  "example": "10"
+                },
+                "subtotal": {
+                  "type": "string",
+                  "example": "450"
+                },
+                "observacao": {
+                  "type": "string",
+                  "example": "Alguma observação sobre o item"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Criado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/itenspedido/{id}": {
+      "delete": {
+        "tags": [
+          "Itens do pedido"
+        ],
+        "summary": "Remove um item do pedido.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Chave de identificação do item do pedido (ID).",
+            "value": "1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Itens do pedido"
+        ],
+        "summary": "Atualização completa do item do pedido.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Chave de identificação do item do pedido (ID).",
+            "value": "1"
+          },
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para atualizar completamente um item do pedido.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "iditenspedido": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "idpedido": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "idproduto": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "quantidade": {
+                  "type": "string",
+                  "example": "3"
+                },
+                "preco_unitario": {
+                  "type": "string",
+                  "example": "150"
+                },
+                "desconto": {
+                  "type": "string",
+                  "example": "10"
+                },
+                "subtotal": {
+                  "type": "string",
+                  "example": "450"
+                },
+                "observacao": {
+                  "type": "string",
+                  "example": "Alguma observação sobre o item"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Itens do pedido"
+        ],
+        "summary": "Atualização parcial do item do pedido.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Chave de identificação do item do pedido (ID).",
+            "value": "1"
+          },
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para atualizar parcialmente um item do pedido.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "iditenspedido": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "quantidade": {
+                  "type": "string",
+                  "example": "3"
+                },
+                "preco_unitario": {
+                  "type": "string",
+                  "example": "150"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/pedido": {
+      "get": {
+        "tags": [
+          "Pedido"
+        ],
+        "summary": "Busca lista de pedidos.",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Pedido"
+        ],
+        "summary": "Cadastra um pedido.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para cadastrar um pedido.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "idcliente": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "data_pedido": {
+                  "type": "string",
+                  "example": "01-06-2023"
+                },
+                "total": {
+                  "type": "string",
+                  "example": "300"
+                },
+                "status": {
+                  "type": "string",
+                  "example": "finalizado"
+                },
+                "forma_pagamento": {
+                  "type": "string",
+                  "example": "pix"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Criado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/pedido/{id}": {
+      "delete": {
+        "tags": [
+          "Pedido"
+        ],
+        "summary": "Remove um pedido.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Chave de identificação do pedido (ID).",
+            "value": "1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Pedido"
+        ],
+        "summary": "Atualização completa do pedido.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Chave de identificação do pedido (ID).",
+            "value": "1"
+          },
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para atualizar completamente um pedido.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "idpedido": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "idcliente": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "data_pedido": {
+                  "type": "string",
+                  "example": "01-06-2023"
+                },
+                "total": {
+                  "type": "string",
+                  "example": "200"
+                },
+                "status": {
+                  "type": "string",
+                  "example": "finalizado"
+                },
+                "forma_pagamento": {
+                  "type": "string",
+                  "example": "pix"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Pedido"
+        ],
+        "summary": "Atualização parcial do pedido.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Chave de identificação do pedido (ID).",
+            "value": "1"
+          },
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para atualizar parcialmente um pedido.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "idpedido": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "data_pedido": {
+                  "type": "string",
+                  "example": "01-06-2023"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/produto": {
+      "get": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Busca lista de produtos.",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Cadastra um produto.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para cadastrar um produto.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": {
+                  "type": "string",
+                  "example": "AK-47 Rebelde"
+                },
+                "descricao": {
+                  "type": "string",
+                  "example": "Poderosa"
+                },
+                "preco": {
+                  "type": "string",
+                  "example": "150"
+                },
+                "idcategoria": {
+                  "type": "string",
+                  "example": "1"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Criado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/produto/{id}": {
+      "delete": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Remove um produto.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Chave de identificação do produto (ID).",
+            "value": "1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Atualização completa do produto.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Chave de identificação do produto (ID).",
+            "value": "1"
+          },
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para atualizar completamente um produto.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "idproduto": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "nome": {
+                  "type": "string",
+                  "example": "AWP Asiimov"
+                },
+                "descricao": {
+                  "type": "string",
+                  "example": "Uma bala basta"
+                },
+                "preco": {
+                  "type": "string",
+                  "example": "200"
+                },
+                "idcategoria": {
+                  "type": "string",
+                  "example": "2"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Produto"
+        ],
+        "summary": "Atualização parcial do produto.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Chave de identificação do produto (ID).",
+            "value": "1"
+          },
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para atualizar parcialmente um produto.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "idproduto": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "nome": {
+                  "type": "string",
+                  "example": "USP-S Córtex"
+                },
+                "descricao": {
+                  "type": "string",
+                  "example": "Pistola com silenciador"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/fornecedor": {
+      "get": {
+        "tags": [
+          "Fornecedor"
+        ],
+        "summary": "Busca lista de fornecedor.",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Fornecedor"
+        ],
+        "summary": "Cadastra um Fornecedor.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para cadastrar um fornecedor.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "idfornecedor": {
+                  "type": "number",
+                  "example": 1
+                },
+                "nome": {
+                  "type": "string",
+                  "example": "João"
+                },
+                "cnpj": {
+                  "type": "string",
+                  "example": "01254658965214"
+                },
+                "telefone": {
+                  "type": "string",
+                  "example": "49855421457"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "joao@gmail.com"
+                },
+                "endereco": {
+                  "type": "string",
+                  "example": "Rua tal"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Criado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/fornecedor/{id}": {
+      "delete": {
+        "tags": [
+          "Fornecedor"
+        ],
+        "summary": "Remove um fornecedor.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Chave de identificação do fornecedor (ID).",
+            "value": "1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Fornecedor"
+        ],
+        "summary": "Atualização completa do fornecedor.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Chave de identificação do fornecedor (ID).",
+            "value": "1"
+          },
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para atualizar completamente um fornecedor",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "idfornecedor": {
+                  "type": "string",
+                  "example": "2"
+                },
+                "nome": {
+                  "type": "string",
+                  "example": "Pablo"
+                },
+                "cnpj": {
+                  "type": "string",
+                  "example": "01254658965214"
+                },
+                "telefone": {
+                  "type": "string",
+                  "example": "49855421457"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "joao@gmail.com"
+                },
+                "endereco": {
+                  "type": "string",
+                  "example": "Rua tal"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Fornecedor"
+        ],
+        "summary": "Atualização parcial do fornecedor.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Chave de identificação do fornecedor (ID).",
+            "value": "1"
+          },
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para atualizar parcialmente um fornecedor.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "idfornecedor": {
+                  "type": "string",
+                  "example": "2"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "joao1234@gmail.com"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/estoque": {
+      "get": {
+        "tags": [
+          "Estoque"
+        ],
+        "summary": "Busca lista de produtos no estoque.",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Estoque"
+        ],
+        "summary": "Cadastra uma categoria.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para cadastrar um produto no estoque.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "idproduto": {
+                  "type": "string",
+                  "example": "2"
+                },
+                "idfornecedor": {
+                  "type": "string",
+                  "example": "2"
+                },
+                "quantidade": {
+                  "type": "string",
+                  "example": "50"
+                },
+                "data_entrada": {
+                  "type": "string",
+                  "example": "05-06-2023"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Criado"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/estoque/{id}": {
+      "delete": {
+        "tags": [
+          "Estoque"
+        ],
+        "summary": "Remove um produto do estoque.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Chave de identificação do estoque (ID).",
+            "value": "1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Estoque"
+        ],
+        "summary": "Atualização completa do estoque.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Chave de identificação do estoque (ID).",
+            "value": "1"
+          },
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para atualizar completamente um estoque.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "idestoque": {
+                  "type": "string",
+                  "example": "3"
+                },
+                "idproduto": {
+                  "type": "string",
+                  "example": "2"
+                },
+                "idfornecedor": {
+                  "type": "string",
+                  "example": "2"
+                },
+                "quantidade": {
+                  "type": "string",
+                  "example": "100"
+                },
+                "data_entrada": {
+                  "type": "string",
+                  "example": "05-06-2023"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Estoque"
+        ],
+        "summary": "Atualização parcial do estoque.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Chave de identificação do estoque (ID).",
+            "value": "1"
+          },
+          {
+            "name": "json",
+            "in": "body",
+            "description": "Dados para atualizar parcialmente do estoque.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "idestoque": {
+                  "type": "string",
+                  "example": "3"
+                },
+                "quantidade": {
+                  "type": "string",
+                  "example": "500"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    }
+  }
+}
