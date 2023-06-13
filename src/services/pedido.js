@@ -5,7 +5,9 @@ const sql_get =
     `select pedido,
             idcliente,
             data_pedido,
-            total
+            total,
+            status,
+            forma_pagamento
        from pedido`
 
 const getPedido = async () => {
@@ -18,11 +20,11 @@ const getPedido = async () => {
 
 //Post
 const sql_insert =
-    `insert into pedido (idcliente, data_pedido, total) values ($1, $2, $3)`
+    `insert into pedido (idcliente, data_pedido, total, status, forma_pagamento) values ($1, $2, $3, $4, $5)`
 
 const postPedido = async (params) => {
-    const { idcliente, data_pedido, total } = params
-    await db.query(sql_insert, [idcliente, data_pedido, total])
+    const { idcliente, data_pedido, total, status, forma_pagamento } = params
+    await db.query(sql_insert, [idcliente, data_pedido, total, status, forma_pagamento])
 }
 
 //Delete
@@ -40,12 +42,14 @@ const sql_put =
     `update pedido
         set idcliente = $2,
             data_pedido = $3,
-            total = $4
+            total = $4,
+            status = $5,
+            forma_pagamento = $6
       where idpedido = $1`
 
 const putPedido = async (params) => {
-    const { idpedido, idcliente, data_pedido, total } = params
-    return await db.query(sql_put, [idpedido, idcliente, data_pedido, total])
+    const { idpedido, idcliente, data_pedido, total, status, forma_pagamento } = params
+    return await db.query(sql_put, [idpedido, idcliente, data_pedido, total, status, forma_pagamento])
 }
 
 //Patch
@@ -72,6 +76,16 @@ const patchPedido = async (params) => {
         countParams ++
         fields += (fields?',':'') + ` total = $${countParams} `
         binds.push(params.total)
+    }
+    if (params.status){
+        countParams ++
+        fields += (fields?',':'') + ` status = $${countParams} `
+        binds.push(params.status)
+    }
+    if (params.forma_pagamento){
+        countParams ++
+        fields += (fields?',':'') + ` forma_pagamento = $${countParams} `
+        binds.push(params.forma_pagamento)
     }
     let sql = sql_patch + fields + ' where idpedido = $1 '
     return await db.query(sql, binds)

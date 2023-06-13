@@ -3,6 +3,8 @@ const Categoria = require('./categoria')
 const Produto = require('./produto')
 const Pedido = require('./pedido')
 const ItensPedido = require('./itenspedido')
+const Fornecedor = require('./fornecedor')
+const Estoque = require('./estoque')
 
 module.exports = (app) => {
     Cliente(app)
@@ -10,4 +12,6 @@ module.exports = (app) => {
     Produto(app)
     Pedido(app)
     ItensPedido(app)
+    Fornecedor(app)
+    Estoque(app)
 }

@@ -6,7 +6,13 @@ const sql_get =
             nome,
             email,
             endereco,
-            telefone
+            telefone,
+            numero,
+            bairro,
+            complemento,
+            municipio,
+            cep,
+            uf
        from cliente`
 
 const getCliente = async () => {
@@ -19,11 +25,12 @@ const getCliente = async () => {
 
 //Post
 const sql_insert =
-    `insert into cliente (nome, email, endereco, telefone) values ($1, $2, $3, $4)`
+    `insert into cliente (nome, email, endereco, telefone, numero, bairro, complemento, municipio, cep, uf)
+         values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`
 
 const postCliente = async (params) => {
-    const {nome, email, endereco, telefone } = params
-    await db.query(sql_insert, [nome, email, endereco, telefone])
+    const {nome, email, endereco, telefone, numero, bairro, complemento, municipio, cep, uf } = params
+    await db.query(sql_insert, [nome, email, endereco, telefone, numero, bairro, complemento, municipio, cep, uf])
 }
 
 //Delete
@@ -42,12 +49,18 @@ const sql_put =
         set nome = $2,
             email = $3,
             endereco = $4,
-            telefone = $5
+            telefone = $5,
+            numero = $6,
+            bairro = $7,
+            complemento = $8,
+            municipio = $9, 
+            cep = $10,
+            uf = $11
       where idcliente = $1`
 
 const putCliente = async (params) => {
-    const { idcliente, nome, email, endereco, telefone } = params
-    return await db.query(sql_put, [idcliente, nome, email, endereco, telefone])
+    const { idcliente, nome, email, endereco, telefone, numero, bairro, complemento, municipio, cep, uf} = params
+    return await db.query(sql_put, [idcliente, nome, email, endereco, telefone, numero, bairro, complemento, municipio, cep, uf])
 }
 
 //Patch
@@ -79,6 +92,36 @@ const patchCliente = async (params) => {
         countParams ++
         fields += (fields?',':'') + ` telefone = $${countParams} `
         binds.push(params.telefone)
+    }
+    if (params.numero){
+        countParams ++
+        fields += (fields?',':'') + ` numero = $${countParams} `
+        binds.push(params.numero)
+    }
+    if (params.bairro){
+        countParams ++
+        fields += (fields?',':'') + ` bairro = $${countParams} `
+        binds.push(params.bairro)
+    }
+    if (params.complemento){
+        countParams ++
+        fields += (fields?',':'') + ` complemento = $${countParams} `
+        binds.push(params.complemento)
+    }
+    if (params.municipio){
+        countParams ++
+        fields += (fields?',':'') + ` municipio = $${countParams} `
+        binds.push(params.municipio)
+    }
+    if (params.cep){
+        countParams ++
+        fields += (fields?',':'') + ` cep = $${countParams} `
+        binds.push(params.cep)
+    }
+    if (params.uf){
+        countParams ++
+        fields += (fields?',':'') + ` uf = $${countParams} `
+        binds.push(params.uf)
     }
     let sql = sql_patch + fields + ' where idcliente = $1 '
     return await db.query(sql, binds)
