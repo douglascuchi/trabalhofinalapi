@@ -54,7 +54,7 @@ const sql_patch =
 const patchCategoria = async (params) => {
     let fields = ''
     let binds = []
-    binds.push(params.idcategoria)
+    binds.push(params.id)
     let countParams = 1
     if (params.nome){
         countParams ++

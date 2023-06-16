@@ -28,7 +28,7 @@ const deletePedido = async (req, res, next) => {
 const putPedido = async (req, res, next) => {
     try {
         let params = req.body
-        params.id = req.params.id
+        params.idpedido = req.params.idpedido
         await pedidoService.putPedido(params)
             .then(ret => res.status(200).send(ret))
             .catch(err => res.status(500).send(err)) 

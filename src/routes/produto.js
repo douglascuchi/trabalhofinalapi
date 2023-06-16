@@ -2,9 +2,24 @@ const produtoController = require('../controllers/produto');
 
 module.exports = (app) => {
     app.get('/produto', produtoController.getProduto
-     /*  #swagger.tags = ['Produto']
-        #swagger.summary = 'Busca lista de produtos.'
-        */)
+    /*  #swagger.tags = ['Produto']   
+        #swagger.summary = 'Busca lista de produtos.'       
+        #swagger.responses[200] = { 
+                description: 'Retorno da consulta:',
+                schema: {
+                    "total": 1,
+                    "produto": [
+                        {
+                            "idproduto": 4,
+                            "nome": "Awp Asiimov",
+                            "descricao": "Não tanca",
+                            "preco": "780.00",
+                            "idcategoria": 3
+                        }
+                    ]
+                }
+        }
+    */)
     app.post('/produto', produtoController.postProduto
     /*  #swagger.tags = ['Produto']
          #swagger.summary = 'Cadastra um produto.'
@@ -13,27 +28,27 @@ module.exports = (app) => {
                 description: 'Dados para cadastrar um produto.',
                 type: 'json',
                 schema: {
-                       nome: "AK-47 Rebelde",
-                       descricao: "Poderosa",
-                       preco: "150",
-                       idcategoria: "1"
+                       nome: "Awp Asiimov",
+                       descricao: "Não tanca",
+                       preco: "780",
+                       idcategoria: "3"
                 }
-            }
-        */)
+        }
+    */)
     app.delete('/produto/:id', produtoController.deleteProduto
     /*  #swagger.tags = ['Produto']
         #swagger.summary = 'Remove um produto.',
         #swagger.parameters['id'] = {
-     description: "Chave de identificação do produto (ID).",
-     value: "1"
+                description: "Chave de identificação do produto (ID).",
+                value: "1"
         }
-        */)
-    app.put('/produto/:id', produtoController.putProduto
+    */)
+    app.put('/produto/:idproduto', produtoController.putProduto
     /*  #swagger.tags = ['Produto']
         #swagger.summary = 'Atualização completa do produto.',
         #swagger.parameters['id'] = {
-     description: "Chave de identificação do produto (ID).",
-     value: "1"
+                description: "Chave de identificação do produto (ID).",
+                value: "1"
         }
         #swagger.parameters['json'] = {
                 in: 'body',
@@ -42,28 +57,26 @@ module.exports = (app) => {
                 schema: {
                        idproduto: "1",
                        nome: "AWP Asiimov",
-                       descricao: "Uma bala basta",
-                       preco: "200",
-                       idcategoria: "2"
+                       descricao: "Mardita",
+                       preco: "780",
+                       idcategoria: "3"
                 }
-            }
-        */)
+        }
+    */)
     app.patch('/produto/:id', produtoController.patchProduto
     /*  #swagger.tags = ['Produto']
         #swagger.summary = 'Atualização parcial do produto.',
         #swagger.parameters['id'] = {
-     description: "Chave de identificação do produto (ID).",
-     value: "1"
+                description: "Chave de identificação do produto (ID).",
+                value: "1"
         }
         #swagger.parameters['json'] = {
                 in: 'body',
                 description: 'Dados para atualizar parcialmente um produto.',
                 type: 'json',
                 schema: {
-                     idproduto: "1",
-                     nome: "USP-S Córtex",
-                     descricao: "Pistola com silenciador"
+                     "preco": "800"
                 }
-            }
-        */)
+        }
+    */)
 }

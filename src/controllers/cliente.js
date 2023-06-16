@@ -28,7 +28,7 @@ const deleteCliente = async (req, res, next) => {
 const putCliente = async (req, res, next) => {
     try {
         let params = req.body
-        params.id = req.params.id
+        params.idcliente = req.params.idcliente
         await clienteService.putCliente(params)
             .then(ret => res.status(200).send(ret))
             .catch(err => res.status(500).send(err)) 

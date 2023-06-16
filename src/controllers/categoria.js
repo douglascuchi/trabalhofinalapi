@@ -28,7 +28,7 @@ const deleteCategoria = async (req, res, next) => {
 const putCategoria = async (req, res, next) => {
     try {
         let params = req.body
-        params.id = req.params.id
+        params.idcategoria = req.params.idcategoria
         await categoriaService.putCategoria(params)
             .then(ret => res.status(200).send(ret))
             .catch(err => res.status(500).send(err)) 

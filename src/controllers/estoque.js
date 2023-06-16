@@ -28,7 +28,7 @@ const deleteEstoque = async (req, res, next) => {
 const putEstoque = async (req, res, next) => {
     try {
         let params = req.body
-        params.id = req.params.id
+        params.idestoque = req.params.idestoque
         await estoqueService.putEstoque(params)
             .then(ret => res.status(200).send(ret))
             .catch(err => res.status(500).send(err)) 

@@ -28,7 +28,7 @@ const deleteItensPedido = async (req, res, next) => {
 const putItensPedido = async (req, res, next) => {
     try {
         let params = req.body
-        params.id = req.params.id
+        params.iditenspedido = req.params.iditenspedido
         await itensPedidoService.putItensPedido(params)
             .then(ret => res.status(200).send(ret))
             .catch(err => res.status(500).send(err)) 

@@ -28,7 +28,7 @@ const deleteFornecedor = async (req, res, next) => {
 const putFornecedor = async (req, res, next) => {
     try {
         let params = req.body
-        params.id = req.params.id
+        params.idfornecedor = req.params.idfornecedor
         await fornecedorService.putFornecedor(params)
             .then(ret => res.status(200).send(ret))
             .catch(err => res.status(500).send(err)) 

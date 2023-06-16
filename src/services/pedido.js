@@ -2,7 +2,7 @@ const db = require('../configs/pg')
 
 //Get
 const sql_get =
-    `select pedido,
+    `select idpedido,
             idcliente,
             data_pedido,
             total,
@@ -60,7 +60,7 @@ const sql_patch =
 const patchPedido = async (params) => {
     let fields = ''
     let binds = []
-    binds.push(params.idpedido)
+    binds.push(params.id)
     let countParams = 1
     if (params.idcliente){
         countParams ++

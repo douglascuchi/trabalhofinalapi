@@ -61,7 +61,7 @@ const sql_patch =
 const patchFornecedor = async (params) => {
     let fields = ''
     let binds = []
-    binds.push(params.idfornecedor)
+    binds.push(params.id)
     let countParams = 1
     if (params.nome){
         countParams ++
