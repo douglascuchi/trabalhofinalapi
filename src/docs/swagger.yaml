@@ -22,7 +22,7 @@
         "tags": [
           "Cliente"
         ],
-        "summary": "Busca lista de clientes",
+        "summary": "Busca lista de clientes.",
         "description": "",
         "parameters": [],
         "responses": {
@@ -323,7 +323,7 @@
         "tags": [
           "Categoria"
         ],
-        "summary": "Busca lista de categorias",
+        "summary": "Busca lista de categorias.",
         "description": "",
         "parameters": [],
         "responses": {
@@ -1311,7 +1311,7 @@
         "tags": [
           "Fornecedor"
         ],
-        "summary": "Cadastra um Fornecedor.",
+        "summary": "Cadastra um fornecedor.",
         "description": "",
         "parameters": [
           {
@@ -1488,7 +1488,7 @@
         "tags": [
           "Estoque"
         ],
-        "summary": "Busca lista de categorias",
+        "summary": "Busca lista de produtos no estoque.",
         "description": "",
         "parameters": [],
         "responses": {
@@ -1544,7 +1544,7 @@
         "tags": [
           "Estoque"
         ],
-        "summary": "Cadastra uma categoria.",
+        "summary": "Cadastra um produto no estoque.",
         "description": "",
         "parameters": [
           {
@@ -1614,7 +1614,7 @@
         "tags": [
           "Estoque"
         ],
-        "summary": "Atualização parcial do estoque.",
+        "summary": "Atualização parcial do produto no estoque.",
         "description": "",
         "parameters": [
           {
@@ -1655,7 +1655,7 @@
         "tags": [
           "Estoque"
         ],
-        "summary": "Atualização completa do estoque.",
+        "summary": "Atualização completa de um produto no estoque.",
         "description": "",
         "parameters": [
           {

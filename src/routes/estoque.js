@@ -3,7 +3,7 @@ const estoqueController = require('../controllers/estoque');
 module.exports = (app) => {
     app.get('/estoque', estoqueController.getEstoque
     /*  #swagger.tags = ['Estoque']   
-        #swagger.summary = 'Busca lista de categorias'       
+        #swagger.summary = 'Busca lista de produtos no estoque.'       
         #swagger.responses[200] = { 
                 description: 'Retorno da consulta:',
                 schema: {
@@ -22,7 +22,7 @@ module.exports = (app) => {
     */)
     app.post('/estoque', estoqueController.postEstoque
     /*  #swagger.tags = ['Estoque']
-         #swagger.summary = 'Cadastra uma categoria.'
+         #swagger.summary = 'Cadastra um produto no estoque.'
          #swagger.parameters['json'] = {
                 in: 'body',
                 description: 'Dados para cadastrar um produto no estoque.',
@@ -45,7 +45,7 @@ module.exports = (app) => {
     */)
     app.put('/estoque/:idestoque', estoqueController.putEstoque
     /*  #swagger.tags = ['Estoque']
-        #swagger.summary = 'Atualização completa do estoque.',
+        #swagger.summary = 'Atualização completa de um produto no estoque.',
         #swagger.parameters['id'] = {
                 description: "Chave de identificação do estoque (ID).",
                 value: "1"
@@ -64,7 +64,7 @@ module.exports = (app) => {
     */)
     app.patch('/estoque/:id', estoqueController.patchEstoque
     /*  #swagger.tags = ['Estoque']
-        #swagger.summary = 'Atualização parcial do estoque.',
+        #swagger.summary = 'Atualização parcial do produto no estoque.',
         #swagger.parameters['id'] = {
                 description: "Chave de identificação do estoque (ID).",
                 value: "1"

@@ -3,7 +3,7 @@ const clienteController = require('../controllers/cliente');
 module.exports = (app) => {
     app.get('/cliente', clienteController.getCliente       
     /*  #swagger.tags = ['Cliente']   
-        #swagger.summary = 'Busca lista de clientes'       
+        #swagger.summary = 'Busca lista de clientes.'       
         #swagger.responses[200] = { 
                 description: 'Retorno da consulta:',
                 schema: {

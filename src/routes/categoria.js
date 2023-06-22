@@ -3,7 +3,7 @@ const categoriaController = require('../controllers/categoria');
 module.exports = (app) => {
     app.get('/categoria', categoriaController.getCategoria
     /*  #swagger.tags = ['Categoria']   
-        #swagger.summary = 'Busca lista de categorias'       
+        #swagger.summary = 'Busca lista de categorias.'       
         #swagger.responses[200] = { 
         description: 'Retorno da consulta:',
         schema: {

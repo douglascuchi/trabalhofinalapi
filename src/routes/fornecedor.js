@@ -23,7 +23,7 @@ module.exports = (app) => {
     */)
     app.post('/fornecedor', fornecedorController.postFornecedor
     /*  #swagger.tags = ['Fornecedor']
-        #swagger.summary = 'Cadastra um Fornecedor.'
+        #swagger.summary = 'Cadastra um fornecedor.'
          #swagger.parameters['json'] = {
                 in: 'body',
                 description: 'Dados para cadastrar um fornecedor.',
