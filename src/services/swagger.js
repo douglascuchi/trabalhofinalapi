@@ -16,9 +16,9 @@ const outputFile = './src/docs/swagger.yaml';
 const endpointsFiles = [
     './src/routes/cliente.js',
     './src/routes/categoria.js',
-    './src/routes/itenspedido.js',
-    './src/routes/pedido.js',
     './src/routes/produto.js',
+    './src/routes/pedido.js',
+    './src/routes/itenspedido.js',
     './src/routes/fornecedor.js',
     './src/routes/estoque.js'
 ]; 

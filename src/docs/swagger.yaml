@@ -519,12 +519,12 @@
         }
       }
     },
-    "/itenspedido": {
+    "/produto": {
       "get": {
         "tags": [
-          "Itens do pedido"
+          "Produto"
         ],
-        "summary": "Busca lista de itens do pedido.",
+        "summary": "Busca lista de produtos.",
         "description": "",
         "parameters": [],
         "responses": {
@@ -537,42 +537,30 @@
                   "type": "number",
                   "example": 1
                 },
-                "itensPedido": {
+                "produto": {
                   "type": "array",
                   "items": {
                     "type": "object",
                     "properties": {
-                      "iditenspedido": {
-                        "type": "number",
-                        "example": 5
-                      },
-                      "idpedido": {
-                        "type": "number",
-                        "example": 3
-                      },
                       "idproduto": {
                         "type": "number",
                         "example": 4
                       },
-                      "quantidade": {
+                      "nome": {
+                        "type": "string",
+                        "example": "Awp Asiimov"
+                      },
+                      "descricao": {
+                        "type": "string",
+                        "example": "Não tanca"
+                      },
+                      "preco": {
+                        "type": "string",
+                        "example": "780.00"
+                      },
+                      "idcategoria": {
                         "type": "number",
-                        "example": 1
-                      },
-                      "preco_unitario": {
-                        "type": "string",
-                        "example": "800.00"
-                      },
-                      "desconto": {
-                        "type": "string",
-                        "example": "0.00"
-                      },
-                      "subtotal": {
-                        "type": "string",
-                        "example": "800.00"
-                      },
-                      "observacao": {
-                        "type": "string",
-                        "example": "Venda para cliente douglas"
+                        "example": 3
                       }
                     }
                   }
@@ -590,45 +578,33 @@
       },
       "post": {
         "tags": [
-          "Itens do pedido"
+          "Produto"
         ],
-        "summary": "Cadastra um item do pedido.",
+        "summary": "Cadastra um produto.",
         "description": "",
         "parameters": [
           {
             "name": "json",
             "in": "body",
-            "description": "Dados para cadastrar um item do pedido.",
+            "description": "Dados para cadastrar um produto.",
             "schema": {
               "type": "object",
               "properties": {
-                "idpedido": {
+                "nome": {
+                  "type": "string",
+                  "example": "Awp Asiimov"
+                },
+                "descricao": {
+                  "type": "string",
+                  "example": "Não tanca"
+                },
+                "preco": {
+                  "type": "string",
+                  "example": "780"
+                },
+                "idcategoria": {
                   "type": "string",
                   "example": "3"
-                },
-                "idproduto": {
-                  "type": "string",
-                  "example": "4"
-                },
-                "quantidade": {
-                  "type": "string",
-                  "example": "1"
-                },
-                "preco_unitario": {
-                  "type": "string",
-                  "example": "800"
-                },
-                "desconto": {
-                  "type": "string",
-                  "example": "0"
-                },
-                "subtotal": {
-                  "type": "string",
-                  "example": "800"
-                },
-                "observacao": {
-                  "type": "string",
-                  "example": "Venda para cliente douglas"
                 }
               }
             }
@@ -644,12 +620,12 @@
         }
       }
     },
-    "/itenspedido/{id}": {
+    "/produto/{id}": {
       "delete": {
         "tags": [
-          "Itens do pedido"
+          "Produto"
         ],
-        "summary": "Remove um item do pedido.",
+        "summary": "Remove um produto.",
         "description": "",
         "parameters": [
           {
@@ -657,7 +633,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "Chave de identificação do item do pedido (ID).",
+            "description": "Chave de identificação do produto (ID).",
             "value": "1"
           }
         ],
@@ -672,9 +648,9 @@
       },
       "patch": {
         "tags": [
-          "Itens do pedido"
+          "Produto"
         ],
-        "summary": "Atualização parcial do item do pedido.",
+        "summary": "Atualização parcial do produto.",
         "description": "",
         "parameters": [
           {
@@ -682,19 +658,19 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "Chave de identificação do item do pedido (ID).",
+            "description": "Chave de identificação do produto (ID).",
             "value": "1"
           },
           {
             "name": "json",
             "in": "body",
-            "description": "Dados para atualizar parcialmente um item do pedido.",
+            "description": "Dados para atualizar parcialmente um produto.",
             "schema": {
               "type": "object",
               "properties": {
-                "observacao": {
+                "preco": {
                   "type": "string",
-                  "example": "Venda para cliente douglas eduardo cuchi cliente fiel"
+                  "example": "800"
                 }
               }
             }
@@ -710,23 +686,23 @@
         }
       }
     },
-    "/itenspedido/{iditenspedido}": {
+    "/produto/{idproduto}": {
       "put": {
         "tags": [
-          "Itens do pedido"
+          "Produto"
         ],
-        "summary": "Atualização completa do item do pedido.",
+        "summary": "Atualização completa do produto.",
         "description": "",
         "parameters": [
           {
-            "name": "iditenspedido",
+            "name": "idproduto",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
             "name": "id",
-            "description": "Chave de identificação do item do pedido (ID).",
+            "description": "Chave de identificação do produto (ID).",
             "value": "1",
             "in": "query",
             "type": "string"
@@ -734,37 +710,29 @@
           {
             "name": "json",
             "in": "body",
-            "description": "Dados para atualizar completamente um item do pedido.",
+            "description": "Dados para atualizar completamente um produto.",
             "schema": {
               "type": "object",
               "properties": {
-                "idpedido": {
-                  "type": "number",
-                  "example": 3
-                },
                 "idproduto": {
-                  "type": "number",
-                  "example": 4
-                },
-                "quantidade": {
-                  "type": "number",
-                  "example": 1
-                },
-                "preco_unitario": {
                   "type": "string",
-                  "example": "800.00"
+                  "example": "1"
                 },
-                "desconto": {
+                "nome": {
                   "type": "string",
-                  "example": "0.00"
+                  "example": "AWP Asiimov"
                 },
-                "subtotal": {
+                "descricao": {
                   "type": "string",
-                  "example": "800.00"
+                  "example": "Mardita"
                 },
-                "observacao": {
+                "preco": {
                   "type": "string",
-                  "example": "Venda para cliente douglas eduardo cuchi"
+                  "example": "780"
+                },
+                "idcategoria": {
+                  "type": "string",
+                  "example": "3"
                 }
               }
             }
@@ -1017,12 +985,12 @@
         }
       }
     },
-    "/produto": {
+    "/itenspedido": {
       "get": {
         "tags": [
-          "Produto"
+          "Itens do pedido"
         ],
-        "summary": "Busca lista de produtos.",
+        "summary": "Busca lista de itens do pedido.",
         "description": "",
         "parameters": [],
         "responses": {
@@ -1035,30 +1003,42 @@
                   "type": "number",
                   "example": 1
                 },
-                "produto": {
+                "itensPedido": {
                   "type": "array",
                   "items": {
                     "type": "object",
                     "properties": {
+                      "iditenspedido": {
+                        "type": "number",
+                        "example": 5
+                      },
+                      "idpedido": {
+                        "type": "number",
+                        "example": 3
+                      },
                       "idproduto": {
                         "type": "number",
                         "example": 4
                       },
-                      "nome": {
-                        "type": "string",
-                        "example": "Awp Asiimov"
-                      },
-                      "descricao": {
-                        "type": "string",
-                        "example": "Não tanca"
-                      },
-                      "preco": {
-                        "type": "string",
-                        "example": "780.00"
-                      },
-                      "idcategoria": {
+                      "quantidade": {
                         "type": "number",
-                        "example": 3
+                        "example": 1
+                      },
+                      "preco_unitario": {
+                        "type": "string",
+                        "example": "800.00"
+                      },
+                      "desconto": {
+                        "type": "string",
+                        "example": "0.00"
+                      },
+                      "subtotal": {
+                        "type": "string",
+                        "example": "800.00"
+                      },
+                      "observacao": {
+                        "type": "string",
+                        "example": "Venda para cliente douglas"
                       }
                     }
                   }
@@ -1076,33 +1056,45 @@
       },
       "post": {
         "tags": [
-          "Produto"
+          "Itens do pedido"
         ],
-        "summary": "Cadastra um produto.",
+        "summary": "Cadastra um item do pedido.",
         "description": "",
         "parameters": [
           {
             "name": "json",
             "in": "body",
-            "description": "Dados para cadastrar um produto.",
+            "description": "Dados para cadastrar um item do pedido.",
             "schema": {
               "type": "object",
               "properties": {
-                "nome": {
-                  "type": "string",
-                  "example": "Awp Asiimov"
-                },
-                "descricao": {
-                  "type": "string",
-                  "example": "Não tanca"
-                },
-                "preco": {
-                  "type": "string",
-                  "example": "780"
-                },
-                "idcategoria": {
+                "idpedido": {
                   "type": "string",
                   "example": "3"
+                },
+                "idproduto": {
+                  "type": "string",
+                  "example": "4"
+                },
+                "quantidade": {
+                  "type": "string",
+                  "example": "1"
+                },
+                "preco_unitario": {
+                  "type": "string",
+                  "example": "800"
+                },
+                "desconto": {
+                  "type": "string",
+                  "example": "0"
+                },
+                "subtotal": {
+                  "type": "string",
+                  "example": "800"
+                },
+                "observacao": {
+                  "type": "string",
+                  "example": "Venda para cliente douglas"
                 }
               }
             }
@@ -1118,12 +1110,12 @@
         }
       }
     },
-    "/produto/{id}": {
+    "/itenspedido/{id}": {
       "delete": {
         "tags": [
-          "Produto"
+          "Itens do pedido"
         ],
-        "summary": "Remove um produto.",
+        "summary": "Remove um item do pedido.",
         "description": "",
         "parameters": [
           {
@@ -1131,7 +1123,7 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "Chave de identificação do produto (ID).",
+            "description": "Chave de identificação do item do pedido (ID).",
             "value": "1"
           }
         ],
@@ -1146,9 +1138,9 @@
       },
       "patch": {
         "tags": [
-          "Produto"
+          "Itens do pedido"
         ],
-        "summary": "Atualização parcial do produto.",
+        "summary": "Atualização parcial do item do pedido.",
         "description": "",
         "parameters": [
           {
@@ -1156,19 +1148,19 @@
             "in": "path",
             "required": true,
             "type": "string",
-            "description": "Chave de identificação do produto (ID).",
+            "description": "Chave de identificação do item do pedido (ID).",
             "value": "1"
           },
           {
             "name": "json",
             "in": "body",
-            "description": "Dados para atualizar parcialmente um produto.",
+            "description": "Dados para atualizar parcialmente um item do pedido.",
             "schema": {
               "type": "object",
               "properties": {
-                "preco": {
+                "observacao": {
                   "type": "string",
-                  "example": "800"
+                  "example": "Venda para cliente douglas eduardo cuchi cliente fiel"
                 }
               }
             }
@@ -1184,23 +1176,23 @@
         }
       }
     },
-    "/produto/{idproduto}": {
+    "/itenspedido/{iditenspedido}": {
       "put": {
         "tags": [
-          "Produto"
+          "Itens do pedido"
         ],
-        "summary": "Atualização completa do produto.",
+        "summary": "Atualização completa do item do pedido.",
         "description": "",
         "parameters": [
           {
-            "name": "idproduto",
+            "name": "iditenspedido",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
             "name": "id",
-            "description": "Chave de identificação do produto (ID).",
+            "description": "Chave de identificação do item do pedido (ID).",
             "value": "1",
             "in": "query",
             "type": "string"
@@ -1208,29 +1200,37 @@
           {
             "name": "json",
             "in": "body",
-            "description": "Dados para atualizar completamente um produto.",
+            "description": "Dados para atualizar completamente um item do pedido.",
             "schema": {
               "type": "object",
               "properties": {
+                "idpedido": {
+                  "type": "number",
+                  "example": 3
+                },
                 "idproduto": {
-                  "type": "string",
-                  "example": "1"
+                  "type": "number",
+                  "example": 4
                 },
-                "nome": {
-                  "type": "string",
-                  "example": "AWP Asiimov"
+                "quantidade": {
+                  "type": "number",
+                  "example": 1
                 },
-                "descricao": {
+                "preco_unitario": {
                   "type": "string",
-                  "example": "Mardita"
+                  "example": "800.00"
                 },
-                "preco": {
+                "desconto": {
                   "type": "string",
-                  "example": "780"
+                  "example": "0.00"
                 },
-                "idcategoria": {
+                "subtotal": {
                   "type": "string",
-                  "example": "3"
+                  "example": "800.00"
+                },
+                "observacao": {
+                  "type": "string",
+                  "example": "Venda para cliente douglas eduardo cuchi"
                 }
               }
             }
