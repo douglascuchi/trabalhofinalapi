@@ -20,6 +20,11 @@ module.exports = (app) => {
                 }
         }
     */)
+    app.get('/produtorifle', produtoController.getProdutoRifle)
+    app.get('/produtopistola', produtoController.getProdutoPistola)
+    app.get('/produtofaca', produtoController.getProdutoFaca)
+    app.get('/produtoluva', produtoController.getProdutoLuva)
+
     app.post('/produto', produtoController.postProduto
     /*  #swagger.tags = ['Produto']
          #swagger.summary = 'Cadastra um produto.'

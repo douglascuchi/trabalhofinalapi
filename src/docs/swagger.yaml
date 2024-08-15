@@ -620,6 +620,62 @@
         }
       }
     },
+    "/produtorifle": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/produtopistola": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/produtofaca": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/produtoluva": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
     "/produto/{id}": {
       "delete": {
         "tags": [

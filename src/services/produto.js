@@ -17,13 +17,99 @@ const getProduto = async () => {
     return produto
 }
 
+const sql_getRifle =
+    `select idproduto,
+            nome,
+            descricao,
+            preco,
+            idcategoria
+       from produto
+    where idcategoria = 22`
+
+const getProdutoRifle = async () => {
+    let produto = {}
+    await db.query(sql_getRifle)
+        .then(ret => produto = { total: ret.rows.length, produto: ret.rows })
+        .catch(err => produto = err.stack)
+    return produto
+}
+
+const sql_getPistola =
+    `select idproduto,
+            nome,
+            descricao,
+            preco,
+            idcategoria
+       from produto
+    where idcategoria = 23`
+
+const getProdutoPistola = async () => {
+    let produto = {}
+    await db.query(sql_getPistola)
+        .then(ret => produto = { total: ret.rows.length, produto: ret.rows })
+        .catch(err => produto = err.stack)
+    return produto
+}
+
+const sql_getFaca =
+    `select idproduto,
+            nome,
+            descricao,
+            preco,
+            idcategoria
+       from produto
+    where idcategoria = 20`
+
+const getProdutoFaca = async () => {
+    let produto = {}
+    await db.query(sql_getFaca)
+        .then(ret => produto = { total: ret.rows.length, produto: ret.rows })
+        .catch(err => produto = err.stack)
+    return produto
+}
+
+const sql_getLuva =
+    `select idproduto,
+            nome,
+            descricao,
+            preco,
+            idcategoria
+       from produto
+    where idcategoria = 21`
+
+const getProdutoLuva = async () => {
+    let produto = {}
+    await db.query(sql_getLuva)
+        .then(ret => produto = { total: ret.rows.length, produto: ret.rows })
+        .catch(err => produto = err.stack)
+    return produto
+}
+
 //Post
 const sql_insert =
     `insert into produto (nome, descricao, preco, idcategoria) values ($1, $2, $3, $4)`
 
 const postProduto = async (params) => {
-    const { nome, descricao, preco, idcategoria } = params
-    await db.query(sql_insert, [nome, descricao, preco, idcategoria])
+    let { nome, descricao, preco, idcategoria } = params;
+
+    switch (idcategoria) {
+        case "facas":
+            idcategoria = 20;
+            break;
+        case "luvas":
+            idcategoria = 21;
+            break;
+        case "rifles":
+            idcategoria = 22;
+            break;
+        case "pistolas":
+            idcategoria = 23;
+            break;
+        default:
+            break;
+    }
+
+    await db.query(sql_insert, [nome, descricao, preco, idcategoria]);
 }
 
 //Delete
@@ -90,3 +176,8 @@ module.exports.postProduto = postProduto
 module.exports.deleteProduto = deleteProduto 
 module.exports.putProduto = putProduto 
 module.exports.patchProduto = patchProduto 
+module.exports.getProdutoRifle = getProdutoRifle
+module.exports.getProdutoPistola = getProdutoPistola
+module.exports.getProdutoFaca = getProdutoFaca
+module.exports.getProdutoLuva = getProdutoLuva
+
